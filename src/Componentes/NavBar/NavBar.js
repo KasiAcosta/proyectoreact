@@ -1,6 +1,8 @@
 import React from 'react'
 import Logo from '../../assets/logo.jpeg'
 import './NavBar.css'
+import './CartWidjet'
+import CartWidjet from './CartWidjet'
 const NavBar = () => {
     return(
         <header style={styles.contenedor}>
@@ -11,7 +13,7 @@ const NavBar = () => {
             <a style={styles.anchor} href="">Tienda</a>
             <a style={styles.anchor} href="">Nosotros</a>
         </nav>
-        
+        <CartWidjet />
         </header>
     )
 }

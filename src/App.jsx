@@ -1,10 +1,14 @@
 import React from 'react';
 import NavBar from './Componentes/NavBar/NavBar.js';
 import './App.css';
+import ItemListContainer from './Componentes/ItemListContainer.jsx';
 
 const App = () => {
   return (
-    <NavBar />
+    <>
+    <NavBar />,
+    <ItemListContainer name = 'Buho Indumentaria' />
+    </>
   );
 }
 
