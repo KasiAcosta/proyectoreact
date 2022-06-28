@@ -1,11 +1,11 @@
 import React from "react";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const CartWidjet =  () => {
+const CartWidget =  () => {
     return (
         <ShoppingCartIcon />
     )
 
 }
 
-export default CartWidjet 
+export default CartWidget 
