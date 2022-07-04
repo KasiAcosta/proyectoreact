@@ -1,44 +1,26 @@
 import React from 'react'
-import Logo from '../../assets/logo.jpeg'
+import FlutterDashIcon from '@mui/icons-material/FlutterDash';
 import './NavBar.css'
 import CartWidget from './CartWidget'
+import 'materialize-css/dist/css/materialize.min.css'
+
 const NavBar = () => {
     return(
-        <header style={styles.contenedor}>
-        <img style={styles.imagen} src={Logo} alt="logo" />
-        <h1>Buho Indumentaria</h1>
-        <nav style={styles.navStyle}>
-            <a style={styles.anchor} href="">Inicio</a>
-            <a style={styles.anchor} href="">Tienda</a>
-            <a style={styles.anchor} href="">Nosotros</a>
+       
+        <nav class= "pink lighten-1">
+            <div class="nav-wrapper">
+                <FlutterDashIcon sx={{ fontSize: 70 }} />
+                     <ul id="nav-mobile" class="right hide-on-med-and-down">
+                         <li><a href="sass.html">Sass</a></li>
+                         <li><a href="badges.html">Components</a></li>
+                         <li><a href="collapsible.html">JavaScript</a></li>
+                     </ul>
+            </div>
+            <CartWidget />
         </nav>
-        <CartWidget />
-        </header>
     )
 }
 
 export default NavBar
 
-const styles = {
 
-contenedor:{
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    fontFamily: 'Koulen', 
-    backgroundColor: 'black',
-    color: '#f185d1 ',
-},
-navStyle:{
-    display: 'flex',
-    justifyContent: 'space-between',
-},
-
-anchor:{
-    paddingLeft: 5,
-    textDecoration: 'none',
-},
-imagen:{
-    width: '10%',
-}
-}

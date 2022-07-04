@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import 'materialize-css/dist/css/materialize.min.css';
 
 const ItemCount = ({stock, initial}) => {
     const [contador, setContador] = useState (1);
+
+    useEffect ( () => {
+        console.log('useEffect')
+    });
 
     const sumar = () => {
         contador < stock && setContador(contador + 1)
@@ -24,12 +29,18 @@ const ItemCount = ({stock, initial}) => {
 
     return (
         <>
-        <div> {ItemCount} </div>
-        <div> {contador} </div>
-        <button onClick= {sumar} > + </button>
-        <button onClick= {restar} > - </button>
-        <button onClick= {reset} > Reset </button>
-        <button onClick= {onAdd} >Comprar</button>
+        <div class="valign-wrapper .center-align"> {ItemCount} 
+        <div class=""> {contador} 
+       <div class=""> 
+        <a class="waves-effect waves-light btn pink" onClick= {sumar}>+</a>
+        <a class="waves-effect waves-light btn pink" onClick= {restar}>-</a>
+        </div>
+        <div class="">
+        <a class="waves-effect waves-light btn pink" onClick= {reset}>Reset</a>
+        <a class="waves-effect waves-light btn pink" onClick= {onAdd}>Comprar</a>
+        </div>
+        </div>
+        </div>
         </>
         )
 }
