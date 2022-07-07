@@ -5,14 +5,15 @@ import Itemlist from "./ItemList";
 const ItemListContainer =  (prop) => {
     const { name } = prop;
     const [productos, setProductos] = useState([]);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState (false);
     const [loading, setLoading] = useState (true);
     
     useEffect(() =>{
       const getProducts = async () =>{
-      try {const response = await fetch("../InfoProducts/infoProducts.json");
-        const data = await response.json();
-        setProductos(data);}
+      try {const response = await fetch('https://fakestoreapi.com/products');
+           const data = await response.json();
+           setProductos(data);
+          }
         catch(err) {
           console.log(err);
           setError(true);
@@ -20,6 +21,7 @@ const ItemListContainer =  (prop) => {
         finally{
           setLoading(false);
         }
+        
       }
       getProducts();
     },[]);
@@ -27,10 +29,10 @@ const ItemListContainer =  (prop) => {
    
     return (
         <>
-        <h2 class="z-depth-2" style={styles.subTitulo}>
+        <h2 className="z-depth-2" style={styles.subTitulo}>
           En {name} vas a encontrar todo lo que buscas
         </h2>
-        {loading ? <p>Loading...</p> : error ? <p>Error...</p> : 'Todo bien'}
+        {loading ? <p>cargando...</p> : error ? <p>Error....</p> : <p></p>}
         <Itemlist productos={productos}/>
         <ItemCount stock = {8} initial = {1}/>
         </>

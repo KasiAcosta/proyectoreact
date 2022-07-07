@@ -29,15 +29,15 @@ const ItemCount = ({stock, initial}) => {
 
     return (
         <>
-        <div class="valign-wrapper .center-align"> {ItemCount} 
-        <div class=""> {contador} 
-       <div class=""> 
-        <a class="waves-effect waves-light btn pink" onClick= {sumar}>+</a>
-        <a class="waves-effect waves-light btn pink" onClick= {restar}>-</a>
+        <div className="valign-wrapper .center-align"> {ItemCount} 
+        <div className=""> {contador} 
+       <div className=""> 
+        <a className="waves-effect waves-light btn pink" onClick= {sumar}>+</a>
+        <a className="waves-effect waves-light btn pink" onClick= {restar}>-</a>
         </div>
-        <div class="">
-        <a class="waves-effect waves-light btn pink" onClick= {reset}>Reset</a>
-        <a class="waves-effect waves-light btn pink" onClick= {onAdd}>Comprar</a>
+        <div className="">
+        <a className="waves-effect waves-light btn pink" onClick= {reset}>Reset</a>
+        <a className="waves-effect waves-light btn pink" onClick= {onAdd}>Comprar</a>
         </div>
         </div>
         </div>
