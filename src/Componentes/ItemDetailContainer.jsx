@@ -25,7 +25,10 @@ const ItemDetailContainer = () => {
 
     return(
         <>{loading ? <p>Loading...</p> : error ? <p>Error...</p> : 'Todo bien'}
-        <ItemDetail detail={detail} />
+        {
+        detail.map(detail => <ItemDetail key={detail.id} detail={detail}/>)
+       }
+        
         </>
         
     )

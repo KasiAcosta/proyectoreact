@@ -10,7 +10,7 @@ const Item = ({producto}) => {
  
      <div class="card-action">
         <p>${producto.price}</p>
-        <p>{producto.description}</p>
+       
      </div>
  
      <div class="card-reveal"></div>
