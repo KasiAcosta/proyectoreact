@@ -13,10 +13,13 @@ const ItemListContainer =  (prop) => {
     const [error, setError] = useState (false);
     const [loading, setLoading] = useState (true);
     
+    
     useEffect(() =>{
-      console.log(categoriaSelec)
+      const ruta = categoriaSelec ? 
+      `https://fakestoreapi.com/products/category/${categoriaSelec}`
+    : 'https://fakestoreapi.com/products';
       const getProducts = async () =>{
-      try {const response = await fetch('https://fakestoreapi.com/products');
+      try {const response = await fetch(ruta);
            const data = await response.json();
            setProductos(data);
           }
