@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
 import ItemCount from './ItemCount';
 import Itemlist from "./ItemList";
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer =  (prop) => {
+
+  const {categoriaSelec} = useParams();
+  
+
     const { name } = prop;
     const [productos, setProductos] = useState([]);
     const [error, setError] = useState (false);
     const [loading, setLoading] = useState (true);
     
     useEffect(() =>{
+      console.log(categoriaSelec)
       const getProducts = async () =>{
       try {const response = await fetch('https://fakestoreapi.com/products');
            const data = await response.json();
@@ -24,7 +30,7 @@ const ItemListContainer =  (prop) => {
         
       }
       getProducts();
-    },[]);
+    },[categoriaSelec]);
 
    
     return (

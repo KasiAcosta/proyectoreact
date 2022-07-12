@@ -2,7 +2,6 @@ import React from "react";
 
 const ItemDetail = ({detail}) => {
 
-
     return(
         <div key={detail.id} class="card small sticky-action">
      <h2>{detail.title}</h2>
@@ -10,6 +9,7 @@ const ItemDetail = ({detail}) => {
      <div class="card-action">
         <p>${detail.price}</p>
         <p>{detail.description}</p>
+        <img src={detail.image} alt="" />
      </div>
  
      <div class="card-reveal"></div>
