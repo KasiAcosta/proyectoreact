@@ -11,7 +11,7 @@ const Item = ({producto}) => {
           <div class="card-image">
             <img src={producto.image} />
             <span class="card-title">{producto.title}</span>
-            <Link to={producto.id} class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">Ver Más</i></Link>
+            <Link to={`/item/${producto.id}`} class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">Ver Más</i></Link>
           </div>
           <div class="card-content">
             <p>${producto.price}</p>
