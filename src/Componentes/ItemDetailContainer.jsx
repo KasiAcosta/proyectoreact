@@ -8,12 +8,14 @@ const ItemDetailContainer = () => {
   const [productos, setProductos] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState (true);
- const {itemId} = useParams ();
+  const { Id } = useParams ();
  
  useEffect(() =>{
   
+    const URL = Id ? `https://fakestoreapi.com/products/${Id}`
+    : "https://fakestoreapi.com/products/"
    const getDetail = async () =>{
-   try {const response = await fetch(`https://fakestoreapi.com/products/${itemId}`)
+   try {const response = await fetch(URL)
      const data = await response.json();
      setProductos(data);}
      catch(err) {
@@ -23,17 +25,14 @@ const ItemDetailContainer = () => {
      finally{
        setLoading(false);
      }
-   }
+   };
    getDetail();
- },[itemId]);
+ },[Id]);
 
     return(
         <>
-        {
-        loading ? <p>Loading...</p> : error ? <p>Error...</p> : 'Todo bien'}
-        {
-        productos.map(producto => <ItemDetail producto={producto}/>)
-       }
+         {loading ? <p>cargando...</p> :<ItemDetail item={productos}></ItemDetail>}
+        
         
         </>
         
