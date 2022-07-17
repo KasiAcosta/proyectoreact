@@ -1,9 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 import 'materialize-css/dist/css/materialize.min.css';
 import ItemCount from './ItemCount';
+import { Link } from "react-router-dom";
 
 
 const ItemDetail = ({item}) => {
+
+  const [ comprar, SetComprar ]= useState(false);
+
+  const onAdd = (contador) => {
+    SetComprar(true)
+  }
 
     return(
       <>
@@ -22,7 +29,12 @@ const ItemDetail = ({item}) => {
           </div>
         </div>
       </div>
-      <ItemCount stock = {8} initial = {1}/>
+
+      {comprar ? <Link className="waves-effect waves-light btn pink" to="./cart">
+      Finalizar Compra
+      </Link>:
+      <ItemCount stock = {8} initial = {1} onAdd={onAdd}/>}
+      
       </>
     )
 }

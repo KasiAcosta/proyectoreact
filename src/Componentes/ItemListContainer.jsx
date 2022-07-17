@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ItemCount from './ItemCount';
+
 import Itemlist from "./ItemList";
 import { useParams } from 'react-router-dom';
 
@@ -43,7 +43,7 @@ const ItemListContainer =  (prop) => {
         </h2>
         {loading ? <p>cargando...</p> : error ? <p>Error....</p> : <p></p>}
         <Itemlist productos={productos}/>
-        <ItemCount stock = {8} initial = {1}/>
+        
         </>
     )
 }

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 
-const ItemCount = ({stock, initial}) => {
-    const [contador, setContador] = useState (1);
+const ItemCount = ({stock, initial, onAdd}) => {
+    const [contador, setContador] = useState (initial);
 
     useEffect ( () => {
         console.log('useEffect')
@@ -21,26 +21,22 @@ const ItemCount = ({stock, initial}) => {
     const reset = () => {
         setContador(0);
     };
-
-    const onAdd = () => {
-        contador >= initial && alert(`Felicitaciones, adquiriste ${contador} productos`)
-        contador < initial && alert(`Por favor agrega productos al carrito para realizar tu compra`)
-    };
+    const agregar = () =>{
+        onAdd(contador);
+    }
 
     return (
         <>
-        <div className="valign-wrapper .center-align"> {ItemCount} 
-        <div className=""> {contador} 
-       <div className=""> 
+
+       <h2>{contador}</h2>
+      
         <a className="waves-effect waves-light btn pink" onClick= {sumar}>+</a>
         <a className="waves-effect waves-light btn pink" onClick= {restar}>-</a>
-        </div>
-        <div className="">
+        
         <a className="waves-effect waves-light btn pink" onClick= {reset}>Reset</a>
-        <a className="waves-effect waves-light btn pink" onClick= {onAdd}>Comprar</a>
-        </div>
-        </div>
-        </div>
+        {contador >= initial? <a className="waves-effect waves-light btn pink" onClick= {agregar}>Agregar al Carrito</a>
+        : <a className="waves-effect waves-light btn pink" >Aun no agregaste productos</a>}
+    
         </>
         )
 }
