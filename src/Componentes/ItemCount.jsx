@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
+import { Link } from "react-router-dom";
 
 const ItemCount = ({stock, initial, onAdd}) => {
     const [contador, setContador] = useState (initial);
@@ -34,8 +35,10 @@ const ItemCount = ({stock, initial, onAdd}) => {
         <a className="waves-effect waves-light btn pink" onClick= {restar}>-</a>
         
         <a className="waves-effect waves-light btn pink" onClick= {reset}>Reset</a>
-        {contador >= initial? <a className="waves-effect waves-light btn pink" onClick= {agregar}>Agregar al Carrito</a>
-        : <a className="waves-effect waves-light btn pink" >Aun no agregaste productos</a>}
+        {contador >= 1 ? 
+        <a className="waves-effect waves-light btn pink" onClick= {agregar}>Agregar al Carrito</a> :
+         <a className="waves-effect waves-light btn pink" >Aun no agregaste productos</a>
+        }
     
         </>
         )

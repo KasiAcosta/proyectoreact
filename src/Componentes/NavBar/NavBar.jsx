@@ -20,7 +20,7 @@ const NavBar = () => {
     <a href="" class="brand-logo"><Link to="/"> <FlutterDashIcon sx={{ fontSize: 70 }} /> </Link></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li>{categorias.map((categoria) => <NavLink key={categoria.id} to={categoria.route}>{categoria.name}</NavLink>)}</li>
-      <li><Link to="/cart"> <CartWidget /> <span class="new badge">4</span></Link></li>
+      <li><Link to="/cart"> <CartWidget /> </Link></li>
     </ul>
   </div>
 </nav>

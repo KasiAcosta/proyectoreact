@@ -1,15 +1,18 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import 'materialize-css/dist/css/materialize.min.css';
 import ItemCount from './ItemCount';
 import { Link } from "react-router-dom";
+import { context } from '../context/CartContext'
 
 
 const ItemDetail = ({item}) => {
+const {addItem} = useContext(context);
 
   const [ comprar, SetComprar ]= useState(false);
 
   const onAdd = (contador) => {
     SetComprar(true)
+    addItem({...item, quantity:contador});
   }
 
     return(
@@ -30,14 +33,17 @@ const ItemDetail = ({item}) => {
         </div>
       </div>
 
-      {comprar ? <Link className="waves-effect waves-light btn pink" to="./cart">
-      Finalizar Compra
-      </Link>:
-      <ItemCount stock = {8} initial = {1} onAdd={onAdd}/>}
+      {comprar ? 
+      <div>
+      <Link className="waves-effect waves-light btn pink" to="/cart">
+      Finalizar Compra </Link>
+      <Link className="waves-effect waves-light btn pink" to="/">Seguir comprando</Link>
+      </div>
+      :
+      <ItemCount stock = {8} initial = {0} onAdd={onAdd}/>}
       
       </>
     )
 }
-
 
 export default ItemDetail
