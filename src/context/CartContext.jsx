@@ -44,9 +44,15 @@ const CartContext = ( {children} ) => {
     const isInCart = (id) => {
         return compra.some(compra => compra.id === id);
     }
+    const totalCompra=()=>{
+        let total=0;
+        compra.forEach((e)=>total=total+ parseFloat(e.quantity*e.price))
+        
+        return total.toFixed(2);
+      }
 
     return(
-        <Provider value={{compra, addItem, removeItem, clear, qtyCompra }}>
+        <Provider value={{compra, addItem, removeItem, clear, qtyCompra, totalCompra }}>
             {children}
         </Provider>
     );

@@ -5,7 +5,7 @@ import { db } from '../firebase/firebase';
 import { addDoc, collection, doc, serverTimestamp} from 'firebase/firestore';
 
 const Cart = () => {
-    const { compra, removeItem, clear} = useContext(context);
+    const { compra, removeItem, clear, totalCompra} = useContext(context);
     const [ idVenta, setIdventa ] = useState("")
     const datosComprador = {
         nombre: 'Juan',
@@ -32,12 +32,13 @@ const Cart = () => {
         </div>
         : <>{compra.map(item =>
             <div>
-         <h2 key={item.id}> {item.title}  <button onClick={removeItem}>X</button> </h2>
-         <p>${item.price}</p>
+         <h2 key={item.id}> {item.title}  <button onClick={()=>removeItem(item.id)}>X</button> </h2>
+         <p>x {item.quantity}</p>
+         <p>${item.price*item.quantity}</p>
          
-        
          </div>
             )}
+            <div className='totalCompra'>Total Compra: $ {totalCompra()}</div>
             <button onClick={clear}> limpiar</button>
             <button onClick={finalizarCompra}> FIN</button>
             </>}
