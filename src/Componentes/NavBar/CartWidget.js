@@ -10,7 +10,7 @@ const CartWidget =  () => {
 
         <>
         <ShoppingCartIcon /> 
-         <span class="new badge">{qtyCompra}</span>
+         { qtyCompra >= 1 ? <span class="new badge">{qtyCompra}</span> : null }
         
         </>
     )
