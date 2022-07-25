@@ -15,7 +15,7 @@ const ItemListContainer = (prop) => {
   useEffect(() => {
     
     const consulta = categoriaSelec
-    ? query(collection(db,'productos'), where('categoria', '==', categoriaSelec))
+    ? query(collection(db,'productos'), where('category', '==', categoriaSelec))
     : collection(db,'productos');
 
     getDocs(consulta)

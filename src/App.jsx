@@ -14,7 +14,7 @@ const App = () => {
     <NavBar />
     <Routes>
     <Route path="/" element={<ItemListContainer name = 'Buho Indumentaria' />}/>
-    <Route path="/categoria/:categoriaSelec" element={<ItemListContainer name = 'Buho Indumentaria' />}/>
+    <Route path="/category/:categoriaSelec" element={<ItemListContainer name = 'Buho Indumentaria' />}/>
     <Route path="/item/:Id" element={<ItemDetailContainer />}/>
     <Route path="/cart" element={<Cart />}/>
     </Routes>
