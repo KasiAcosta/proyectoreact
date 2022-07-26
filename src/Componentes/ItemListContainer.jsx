@@ -13,23 +13,23 @@ const ItemListContainer = (prop) => {
 
 
   useEffect(() => {
-    
+
     const consulta = categoriaSelec
-    ? query(collection(db,'productos'), where('category', '==', categoriaSelec))
-    : collection(db,'productos');
+      ? query(collection(db, 'productos'), where('category', '==', categoriaSelec))
+      : collection(db, 'productos');
 
     getDocs(consulta)
-    .then(result => {
-      const lista = result.docs.map(doc => {
-        return{
-          id: doc.id,
-          ...doc.data()
-        }
+      .then(result => {
+        const lista = result.docs.map(doc => {
+          return {
+            id: doc.id,
+            ...doc.data()
+          }
+        })
+        setProductos(lista);
       })
-      setProductos(lista);
-    })
-    .catch(error => console.log(error))
-    .finally(() => setLoading(false))
+      .catch(error => console.log(error))
+      .finally(() => setLoading(false))
   }, [categoriaSelec]);
 
 
@@ -39,7 +39,7 @@ const ItemListContainer = (prop) => {
         En {name} vas a encontrar todo lo que buscas
       </h2>
       {loading ? <p>cargando...</p> : <Itemlist productos={productos} />}
-      
+
 
     </>
   )
