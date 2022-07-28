@@ -1,6 +1,8 @@
 import React, { useState, createContext, useEffect } from "react";
 
-export const context = createContext();
+export const context = createContext({
+    productosCarrito:[]
+});
 const { Provider } = context;
 
 const CartContext = ( {children} ) => {
@@ -52,7 +54,14 @@ const CartContext = ( {children} ) => {
       }
 
     return(
-        <Provider value={{compra, addItem, removeItem, clear, qtyCompra, totalCompra }}>
+        <Provider value={{
+            productosCarrito:compra, 
+            addItem, 
+            removeItem, 
+            clear, 
+            qtyCompra, 
+            totalCompra 
+            }}>
             {children}
         </Provider>
     );

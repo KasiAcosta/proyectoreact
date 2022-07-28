@@ -1,26 +1,51 @@
 import React from "react";
 import 'materialize-css/dist/css/materialize.min.css'
 import { Link } from "react-router-dom";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Button, CardActionArea, CardActions } from '@mui/material';
 
-const Item = ({producto}) => {
+const Item = ({ producto }) => {
 
-    return (
-      <div  class="row">
-      <div class="col s12 m6">
-        <div class="card small">
-          <div class="card-image">
-          <img src={producto.image} />
-            <span class="card-title">{producto.title}</span>
-            <Link to={`/item/${producto.id}`} class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">B</i></Link>
-          </div>
-          <div class="card-content">
-            <p>${producto.price}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+  return (
 
-)
+    <Card sx={{ maxWidth: 345 }} style={styles.container}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image={producto.image}
+          alt="green iguana"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {producto.title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            ${producto.price}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="secondary">
+          <Link to={`/item/${producto.id}`} className="btn-floating halfway-fab waves-effect waves-light red">+</Link>
+        </Button>
+      </CardActions>
+    </Card>
+  )
 }
 
 export default Item
+
+const styles = {
+  container: {
+    width: window.innerHeight > 900 ? "25%" : "90%",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 20,
+    backgroundColor: "#fce4ec"
+  },
+}

@@ -13,9 +13,11 @@ const NavBar = () => {
     { name: "women's clothing", id: 3, route: "/category/women's clothing" },
   ];
   return (
-    <header style={styles.header}>
-      <Link to="/" > <FlutterDashIcon sx={{ fontSize: 70 }} /> </Link>
-      <h1 style={styles.titulo}>Buho Tienda</h1>
+    <header style={styles.header} className="z-depth-5">
+      <div style={styles.logo} >
+      <Link to="/" > <FlutterDashIcon color="secondary" sx={{ fontSize: 70 }} /> </Link>
+      <h1  style={styles.titulo}>Buho Tienda</h1>
+      </div>
     <nav>
 
       {categorias.map((categoria) => <NavLink key={categoria.id} to={categoria.route}>{categoria.name}</NavLink>)}
@@ -31,13 +33,21 @@ export default NavBar
 const styles = {
 
   header:{
-    backgroundColor: '#f3e5f5',
+    backgroundColor: '#fce4ec',
     display: 'flex',
-    flexdirection: 'row',
+    flexwrap: 'wrap',
   },
 
   titulo:{
     fontfamily:'Koulen',
-  }
+    fontSize: '50',
+  },
+
+  logo:{
+  justifyContent: "center",
+    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+  },
 
 }
