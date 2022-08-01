@@ -7,11 +7,9 @@ const CartWidget =  () => {
     const { qtyCompra } = useContext(context);
 
     return (
-
         <>
         <ShoppingCartIcon /> 
          { qtyCompra >= 1 ? <span class="new badge">{qtyCompra}</span> : null }
-        
         </>
     )
 

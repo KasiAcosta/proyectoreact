@@ -17,7 +17,6 @@ const Item = ({ producto }) => {
           component="img"
           height="140"
           image={producto.image}
-          alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

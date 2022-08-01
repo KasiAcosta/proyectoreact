@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import Context, { context } from '../context/CartContext';
+import { context } from '../context/CartContext';
 import { db } from '../firebase/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
@@ -47,7 +47,7 @@ export const Form = () => {
     return (
         <>
             {loading ? <p>cargando</p>
-                : (!idOrden && <div>
+                : (!idOrden&&<div>
                     <form onSubmit={enviar}>
                         <div>
                             <h2> Datos Comprador</h2>
@@ -66,7 +66,7 @@ export const Form = () => {
                             <textarea name="Mensaje" onChange={Input} placeholder="Dejanos tu comentario..." value={Mensaje} id="" cols="30" rows="10" required></textarea>
 
                             <p>
-                                <button >Enviar
+                                <button>Enviar
                                 </button>
                             </p>
                         </div>
@@ -74,7 +74,7 @@ export const Form = () => {
                 </div>)}
             <div>
                 {
-                    idOrden && (
+                    idOrden&&(
                         <div>
                             <h3>Gracias por su Compra</h3>
                             <h4>{`Su código de operación es: ${idOrden}`}</h4>

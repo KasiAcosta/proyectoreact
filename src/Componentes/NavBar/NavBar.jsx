@@ -15,15 +15,14 @@ const NavBar = () => {
   return (
     <header style={styles.header} className="z-depth-5">
       <div style={styles.logo} >
-      <Link to="/" > <FlutterDashIcon color="secondary" sx={{ fontSize: 70 }} /> </Link>
-      <h1  style={styles.titulo}>Buho Tienda</h1>
+        <Link to="/" > <FlutterDashIcon color="secondary" sx={{ fontSize: 70 }} /> </Link>
+        <h1 style={styles.titulo}>Buho Tienda</h1>
       </div>
-    <nav>
-
-      {categorias.map((categoria) => <NavLink key={categoria.id} to={categoria.route}>{categoria.name}</NavLink>)}
-      <Link to="/cart"> <CartWidget /> </Link>
-
-    </nav>
+      <nav>
+        {categorias.map((categoria) => 
+        <NavLink key={categoria.id} to={categoria.route}>{categoria.name}</NavLink>)}
+        <Link to="/cart"> <CartWidget /> </Link>
+      </nav>
     </header>
   )
 }
@@ -32,19 +31,19 @@ export default NavBar
 
 const styles = {
 
-  header:{
+  header: {
     backgroundColor: '#fce4ec',
     display: 'flex',
     flexwrap: 'wrap',
   },
 
-  titulo:{
-    fontfamily:'Koulen',
+  titulo: {
+    fontfamily: 'Koulen',
     fontSize: '50',
   },
 
-  logo:{
-  justifyContent: "center",
+  logo: {
+    justifyContent: "center",
     alignItems: "center",
     display: 'flex',
     flexDirection: 'row',
