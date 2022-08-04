@@ -15,12 +15,12 @@ const NavBar = () => {
   return (
     <header style={styles.header} className="z-depth-5">
       <div style={styles.logo} >
-        <Link to="/" > <FlutterDashIcon color="secondary" sx={{ fontSize: 70 }} /> </Link>
-        <h1 style={styles.titulo}>Buho Tienda</h1>
+        <Link to="/" > <FlutterDashIcon style={styles.imgLogo} sx={{ fontSize: 80 }}  />
+        <h1 style={styles.titulo}>Buho Tienda</h1> </Link>
       </div>
-      <nav>
-        {categorias.map((categoria) => 
-        <NavLink key={categoria.id} to={categoria.route}>{categoria.name}</NavLink>)}
+      <nav style={styles.nav} className="z-depth-1">
+      {categorias.map((categoria) => 
+        <NavLink style={styles.navL} key={categoria.id} to={categoria.route}>{categoria.name}</NavLink>)}
         <Link to="/cart"> <CartWidget /> </Link>
       </nav>
     </header>
@@ -32,21 +32,45 @@ export default NavBar
 const styles = {
 
   header: {
-    backgroundColor: '#fce4ec',
+    backgroundColor: '#ffebee',
     display: 'flex',
-    flexwrap: 'wrap',
+    flexDirection: 'row',
+    
+  },
+
+  logo: {
+    display: 'block',
+   
+    
   },
 
   titulo: {
     fontfamily: 'Koulen',
-    fontSize: '50',
+    fontSize: 20,
+    color: '#ec407a',
+    
   },
 
-  logo: {
-    justifyContent: "center",
-    alignItems: "center",
-    display: 'flex',
-    flexDirection: 'row',
+  
+
+  imgLogo:{
+    color: '#ec407a',
+    
+  },
+
+  nav:{
+    borderRadius: 10,
+    backgroundColor: '#ffebee',
+    fontSize: 20,
+    
+    
+  },
+
+  navL:{
+    padding: 30,
+    border: 30,
+    color: '#ec407a',
+    
   },
 
 }

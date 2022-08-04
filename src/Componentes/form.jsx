@@ -1,26 +1,22 @@
 import React, { useState, useContext } from "react";
 import { context } from '../context/CartContext';
 import { db } from '../firebase/firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
-
-
 export const Form = () => {
     const { productosCarrito, clear, totalCompra } = useContext(context)
     const [idOrden, setIdOrden] = useState()
     const [loading, setLoading] = useState(false)
     const [buyer, setBuyer] = useState({
         Nombre: '',
-        Email: '',
-        Telefono: '',
-        Mensaje: ''
+        Email: ''
     })
-    const { Nombre, Email, Telefono, Mensaje } = buyer
+    const { Nombre, Email } = buyer
 
     const Input = (e) => {
         setBuyer(({
             ...buyer,
-            [e.target.name]:e.target.value
+            [e.target.name]: e.target.value
         }))
     }
 
@@ -30,15 +26,16 @@ export const Form = () => {
             const order = await addDoc(col, data)
             setIdOrden(order.id)
             clear()
+
         } catch (error) {
-            <p>error</p>
+            console.log(error)
         }
     }
 
     const enviar = (e) => {
         e.preventDefault()
-        const dia = new Date()
-        const items = productosCarrito.map(e => { return { id: e.id, Titulo: e.Nombre, Precio: e.precio, Cantidad: e.Cantidad } })
+        const dia = serverTimestamp()
+        const items = productosCarrito.map(e => { return { id: e.id, Titulo: e.title, Precio: e.price } })
         const total = totalCompra()
         const data = { buyer, dia, items, total }
         generarPedido(data)
@@ -47,7 +44,7 @@ export const Form = () => {
     return (
         <>
             {loading ? <p>cargando</p>
-                : (!idOrden&&<div>
+                : (!idOrden && <div>
                     <form onSubmit={enviar}>
                         <div>
                             <h2> Datos Comprador</h2>
@@ -60,27 +57,19 @@ export const Form = () => {
                                 <input type="email" name="Email" onChange={Input} placeholder="Mail" value={Email} required />
                             </p>
                             <p>
-                                <input type="number" name="Telefono" onChange={Input} placeholder="Teléfono" value={Telefono} required />
-                            </p>
-
-                            <textarea name="Mensaje" onChange={Input} placeholder="Dejanos tu comentario..." value={Mensaje} id="" cols="30" rows="10" required></textarea>
-
-                            <p>
-                                <button>Enviar
-                                </button>
+                                <button>Enviar</button>
                             </p>
                         </div>
                     </form>
                 </div>)}
             <div>
                 {
-                    idOrden&&(
+                    idOrden && (
                         <div>
-                            <h3>Gracias por su Compra</h3>
-                            <h4>{`Su código de operación es: ${idOrden}`}</h4>
-                            <h4>{`Le enviarenos a ${Email} la factura electrónica de su compra`}</h4>
+                            <h3>¡Gracias por su Compra!</h3>
+                            <p>{`Su codigo de operacion es: ${idOrden}`}</p>
+                            <p>{`Le enviarenos a ${Email} la factura electronica de su compra`}</p>
                             <div ><Link to={'/'} >Realizar otra compra </Link></div>
-
                         </div>
                     )
                 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import NavBar from './Componentes/NavBar/NavBar';
-import './App.css';
 import ItemListContainer from './Componentes/ItemListContainer';
 import ItemDetailContainer from './Componentes/ItemDetailContainer';
 import Cart from './Componentes/Cart';
@@ -14,7 +13,7 @@ const App = () => {
     <CartContext> 
     <NavBar />
     <Routes>
-    <Route path="/" element={<ItemListContainer name = 'Buho Indumentaria' />}/>
+    <Route path="/" element={<ItemListContainer name = 'Buho' />}/>
     <Route path="/category/:categoriaSelec" element={<ItemListContainer name ="Buho"  />}/>
     <Route path="/item/:Id" element={<ItemDetailContainer />}/>
     <Route path="/cart" element={<Cart />}/>

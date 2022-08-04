@@ -40,7 +40,6 @@ export default Item
 
 const styles = {
   container: {
-    width: window.innerHeight > 900 ? "25%" : "90%",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
