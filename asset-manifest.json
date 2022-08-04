@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/proyectoreact/static/css/main.e56e4629.css",
+    "main.js": "/proyectoreact/static/js/main.a4b5b711.js",
+    "static/js/787.93c83cab.chunk.js": "/proyectoreact/static/js/787.93c83cab.chunk.js",
+    "index.html": "/proyectoreact/index.html",
+    "main.e56e4629.css.map": "/proyectoreact/static/css/main.e56e4629.css.map",
+    "main.a4b5b711.js.map": "/proyectoreact/static/js/main.a4b5b711.js.map",
+    "787.93c83cab.chunk.js.map": "/proyectoreact/static/js/787.93c83cab.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e56e4629.css",
+    "static/js/main.a4b5b711.js"
+  ]
+}
