@@ -15,8 +15,7 @@ const NavBar = () => {
   return (
     <header style={styles.header} className="z-depth-5">
       <div style={styles.logo} >
-        <Link to="/" > <FlutterDashIcon style={styles.imgLogo} sx={{ fontSize: 80 }}  />
-        <h1 style={styles.titulo}>Buho Tienda</h1> </Link>
+        <Link to="/" > <FlutterDashIcon style={styles.imgLogo} sx={{ fontSize: 80 }}  /></Link>
       </div>
       <nav style={styles.nav} className="z-depth-1">
       {categorias.map((categoria) => 
@@ -43,15 +42,6 @@ const styles = {
    
     
   },
-
-  titulo: {
-    fontfamily: 'Koulen',
-    fontSize: 20,
-    color: '#ec407a',
-    
-  },
-
-  
 
   imgLogo:{
     color: '#ec407a',

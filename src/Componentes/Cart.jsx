@@ -15,7 +15,7 @@ const Cart = () => {
                 : <div style={styles.divCart} > <h1 style={styles.tituloCart}> Detalle de su carrito  </h1> {productosCarrito.map(item =>
                     <div style={styles.divDet}>
                         <div>
-                        <h3 style={styles.art} key={item.id}> {item.title}  
+                        <h3 style={styles.art} id={item.id}> {item.title}  
                         <button style={styles.btnRemove} className="waves-effect waves-light btn pink" onClick={() => removeItem(item.id)}>X</button></h3>
                         <p> {item.quantity} unidades</p>
                         <p>${item.price * item.quantity}</p>
