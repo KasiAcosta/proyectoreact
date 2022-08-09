@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
-import { Link } from "react-router-dom";
 
 const ItemCount = ({stock, initial, onAdd}) => {
     const [contador, setContador] = useState (initial);
@@ -11,7 +10,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
     const sumar = () => {
         contador < stock && setContador(contador + 1)
-        contador >= stock && alert("No hay stock")
+       
     };
 
     const restar = () => {
@@ -27,10 +26,11 @@ const ItemCount = ({stock, initial, onAdd}) => {
     }
 
     return (
-        <>
-
-       <h2>{contador}</h2>
-      
+        <div style={styles.iCount}>
+        {contador < stock ? 
+        <h2>{contador}</h2> : <h2 style={styles.cont}>{contador}</h2>
+        }
+       
         <a className="waves-effect waves-light btn pink" onClick= {sumar}>+</a>
         <a className="waves-effect waves-light btn pink" onClick= {restar}>-</a>
         
@@ -40,10 +40,22 @@ const ItemCount = ({stock, initial, onAdd}) => {
          <a className="waves-effect waves-light btn pink" >Aun no agregaste productos</a>
         }
     
-        </>
+        </div>
         )
 }
 
 
 export default ItemCount
 
+const styles = {
+
+    iCount:{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+    },
+    
+    cont:{
+        color:'red',
+    }
+}

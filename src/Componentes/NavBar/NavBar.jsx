@@ -33,18 +33,18 @@ const styles = {
   header: {
     backgroundColor: '#ffebee',
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     
   },
 
   logo: {
     display: 'block',
-   
-    
   },
 
   imgLogo:{
     color: '#ec407a',
+    display: 'block',
+    margin: '0% auto',
     
   },
 
@@ -52,13 +52,15 @@ const styles = {
     borderRadius: 10,
     backgroundColor: '#ffebee',
     fontSize: 20,
-    
+    display:'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent:'space-around',
     
   },
 
   navL:{
-    padding: 30,
-    border: 30,
+    
     color: '#ec407a',
     
   },

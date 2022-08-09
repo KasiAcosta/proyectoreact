@@ -28,26 +28,58 @@ const ItemListContainer = (prop) => {
         })
         setProductos(lista);
       })
-      .catch(error => console.log(error))
+      .catch(error  => (error))
       .finally(() => setLoading(false))
   }, [categoriaSelec]);
 
 
   return (
-    <>
-      <h2 className="z-depth-2" style={styles.subTitulo}>
-        En {name} vas a encontrar todo lo que buscas
-      </h2>
-      {loading ? <p>cargando...</p> : <Itemlist productos={productos} />}
+    <section style={styles.cont}>
+      <div>
+        <h2 className="z-depth-2" style={styles.subTitulo}>
+          En {name} vas a encontrar todo lo que buscas
+        </h2>
+      </div>
+      <div style={styles.items}>
+        {loading ?
+          <div style={styles.load} className="preloader-wrapper active">
+            <div className="spinner-layer spinner-red-only">
+              <div className="circle-clipper left">
+                <div className="circle"></div>
+              </div><div className="gap-patch">
+                <div className="circle"></div>
+              </div><div className="circle-clipper right">
+                <div className="circle"></div>
+              </div>
+            </div>
+          </div>
+          : <Itemlist key={Itemlist.id} productos={productos} />}
+      </div>
 
-
-    </>
+    </section>
   )
 }
 
 export default ItemListContainer
 
 const styles = {
+
+  load: {
+    display: 'block',
+    margin: 'auto',
+  },
+  cont: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+
+  items: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    gap: '5%',
+  },
 
   subTitulo: {
     textAlign: 'center',
